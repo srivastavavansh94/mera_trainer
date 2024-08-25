@@ -3,6 +3,7 @@ import { Route, Routes} from 'react-router-dom'
 import Navbar from './Components/Navbar/Navbar'
 import Home from './pages/Home'
 import ExerciseDetail from './pages/ExerciseDetail'
+import './App.css'
 
 const App = () => {
   return (
