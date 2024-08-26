@@ -9,11 +9,11 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart }) => {
 
     useEffect(() => {
       const startingBodyPart = async () => {
-        // const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+        const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
 
-        // setBodyParts(['all', ...bodyPartsData]);
+        setBodyParts(['all', ...bodyPartsData]);
         
-        setBodyParts(['all', 'chest', 'back', 'cardio', 'lower legs', 'lower arms', 'waist', 'upper arms', 'upper legs', 'shoulders'])
+        // setBodyParts(['all', 'chest', 'back', 'cardio', 'lower legs', 'lower arms', 'waist', 'upper arms', 'upper legs', 'shoulders'])
         // console.log(bodyParts);
       }
       startingBodyPart();
@@ -50,7 +50,7 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart }) => {
         </form>
         </div>
       </div>
-      <div className='position-relative'><HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} /></div>
+      <div className='position-relative'><HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts /></div>
     </div>
   )
 }

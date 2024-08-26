@@ -22,30 +22,30 @@ const ExerciseDisplay = ({ setExercises, exercises, bodyPart }) => {
     window.scrollTo({ top:1200, behaviour:'smooth' })
   };
 
-  // useEffect(() => {
-  //   const fetchClickedBodyPartData = async() => {
-  //     let exercisesData = []
+  useEffect(() => {
+    const fetchClickedBodyPartData = async() => {
+      let exercisesData = []
 
-  //     if(bodyPart === 'all'){
-  //       exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=0', exerciseOptions)
-  //     }
-  //     else{
-  //       exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=0`, exerciseOptions)
-  //     }
-  //     setExercises(exercisesData);
-  //   }
-  //   fetchClickedBodyPartData();
-  // }, [bodyPart])
+      if(bodyPart === 'all'){
+        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=0', exerciseOptions)
+      }
+      else{
+        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=0`, exerciseOptions)
+      }
+      setExercises(exercisesData);
+    }
+    fetchClickedBodyPartData();
+  }, [bodyPart])
   
   return (
     <div id="exercises">
-      <h5 className='display-6 m-5'>Showing results </h5>
-      <div className='d-flex flex-wrap justify-content-center align-items-center' style={{gap:'2%'}}>
+      <h5 className='display-6 m-5 ps-lg-5'>Showing results </h5>
+      <div className='d-flex flex-wrap justify-content-center align-items-center' style={{gap:'2%', overflowX:'hidden', whiteSpace:'nowrap'}}>
         { currentExercises.map( (exercise, index) => (
           <ExerciseCard key={index} exercise={exercise} />
         ))}
       </div>
-      <div className='pagination-container d-flex justify-content-center'>
+      { exercises.length !== 0 ? <div className='pagination-container d-flex justify-content-center mt-4'>
         <ReactPaginate  previousLabel={'<<'}
         nextLabel={'>>'}
         breakLabel={'...'}
@@ -64,7 +64,10 @@ const ExerciseDisplay = ({ setExercises, exercises, bodyPart }) => {
         breakLinkClassName={'page-link'}
         activeClassName={'active'}
          />
-      </div>
+      </div> : <p></p>
+
+      }
+      
     </div>
   )
 }
