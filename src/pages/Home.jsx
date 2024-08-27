@@ -7,12 +7,13 @@ import ExerciseDisplay from '../Components/ExercisesDisplay/ExercisesDisplay'
 const Home = () => {
   const [exercises, setExercises] = useState([]);
   const [bodyPart, setBodyPart] = useState('all');
+  const [search, setSearch] = useState('');
 
   return (
     <div>
       <HeroBanner />
-      <SearchExercise setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-      <ExerciseDisplay setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} />
+      <SearchExercise setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} search={search} setSearch={setSearch} />
+      <ExerciseDisplay setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} search={search} />
     </div>
   )
 }

@@ -5,7 +5,7 @@ const DetailedExercises = ({ exerciseDetail }) => {
   return (
     <div className='d-flex flex-lg-row flex-column justify-content-center align-items-center ' style={{margin:'5% 10%', overflowX:'hidden'}}>
       <div>
-        <img src={exerciseDetail.gifUrl} alt={exerciseDetail.name}  />
+        <img src={exerciseDetail.gifUrl} alt={exerciseDetail.name} loading='lazy' />
       </div>
       <div className='m-lg-5'>
         <h3 className='text-capitalize display-4'>{exerciseDetail.name}</h3>
@@ -31,9 +31,7 @@ const DetailedExercises = ({ exerciseDetail }) => {
                 </div>
                 <h5 className='text-capitalize mt-3 ms-4'>{exerciseDetail.equipment}</h5>
             </div>
-       
       </div>
-      
     </div>
   )
 }

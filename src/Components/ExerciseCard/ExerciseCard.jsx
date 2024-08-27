@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const ExerciseCard = ({ exercise }) => {
   return (
-    <div className='h-25' style={{ width:'' , borderTop:'solid 4px #ffa9a9', marginTop:'20px'}}>
+    <div className='h-25' style={{ borderTop:'solid 4px #ffa9a9', marginTop:'20px'}}>
         <Link className='' to={`/exercise/${exercise.id}`}  >
             <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' style={{height:'250px'}} />
             <div className='' style={{textAlign:'center'}}>

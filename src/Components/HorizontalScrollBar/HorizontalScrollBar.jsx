@@ -4,32 +4,8 @@ import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import ExerciseCard from '../ExerciseCard/ExerciseCard'
 
-const HorizontalScrollBar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
+const HorizontalScrollBar = ({data, bodyPart, setBodyPart, isBodyParts, setSearch}) => {
 
-  // const LeftArrow = () => {
-  //   const { scrollPrev } = useContext(VisibilityContext);
-  //   return (
-  //     <div 
-  //       onClick={() => scrollPrev()} 
-  //       style={{ cursor: 'pointer', marginRight: '10px' }}>
-  //       <h2>Left</h2>
-  //     </div>
-  //   );
-  // };
-
-  // const RightArrow = () => {
-  //   const { scrollNext } = useContext(VisibilityContext);
-  //   return (
-  //     <div 
-  //       onClick={() => {
-  //         if (typeof scrollNext === 'function') scrollNext();
-  //         {console.log("right")}
-  //       }} 
-  //       style={{ cursor: 'pointer', marginRight: '10px' }}>
-  //       <h2>Right</h2>
-  //     </div>
-  //   );
-  // };
 
   return (
     <div style={{margin:'5% 10%', border:'solid 4px #ffa9a9'}}>
@@ -43,16 +19,12 @@ const HorizontalScrollBar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
         className='m-4'>
           
           {isBodyParts ? 
-            <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} setSearch={setSearch} />
           : <ExerciseCard exercise={item} />}
         </div>
       })}
     </ScrollMenu>
     </div>
-    {/* <div className='d-flex' style={{ justifyContent: 'space-between', margin:'0% 10%'}}>
-    <LeftArrow />
-      <RightArrow />
-    </div> */}
     </div>
   )
 }

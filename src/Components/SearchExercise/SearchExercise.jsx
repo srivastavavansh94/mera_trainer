@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { exerciseOptions, fetchData } from '../../utils/FetchData'
 import HorizontalScrollBar from '../HorizontalScrollBar/HorizontalScrollBar'
 
-const SearchExercise = ({ setExercises, bodyPart, setBodyPart }) => {
+
+const SearchExercise = ({ setExercises, bodyPart, setBodyPart, search, setSearch}) => {
     
-    const [search, setSearch] = useState('');
     const [bodyParts, setBodyParts] = useState([]);
 
     useEffect(() => {
@@ -13,8 +13,6 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart }) => {
 
         setBodyParts(['all', ...bodyPartsData]);
         
-        // setBodyParts(['all', 'chest', 'back', 'cardio', 'lower legs', 'lower arms', 'waist', 'upper arms', 'upper legs', 'shoulders'])
-        // console.log(bodyParts);
       }
       startingBodyPart();
       
@@ -31,7 +29,6 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart }) => {
             || item.bodyPart.toLowerCase().includes(search)
             || item.equipment.toLowerCase().includes(search)
           );
-          setSearch('');
           
           setExercises(searchedExercises);
           window.scrollTo({top:1200, behavior:'smooth'})
@@ -50,7 +47,7 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart }) => {
         </form>
         </div>
       </div>
-      <div className='position-relative'><HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts /></div>
+      <div className='position-relative'><HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts setSearch={setSearch} /></div>
     </div>
   )
 }
